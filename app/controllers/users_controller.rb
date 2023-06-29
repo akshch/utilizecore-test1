@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_user, only: %i[ show edit update destroy ]
 
   # GET /users or /users.json
@@ -23,9 +24,11 @@ class UsersController < ApplicationController
   # POST /users or /users.json
   def create
     @user = User.new(user_params)
-
+    password = Devise.friendly_token.first(10)
+    @user.password = password
     respond_to do |format|
       if @user.save
+        UserMailer.with(user: @user, password: password).password_email.deliver_later
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else

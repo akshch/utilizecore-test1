@@ -33,7 +33,7 @@
 
   <div class="field">
     <%= form.label :sender_id %>
-    <%= form.select :sender_id, @users %>
+    <%= form.select :sender_id, [[current_user.name_with_address, current_user.id]] %>
     <%= link_to 'New Sender', new_user_path %>
   </div>
 

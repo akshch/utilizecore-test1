@@ -1,4 +1,5 @@
 class ParcelsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_parcel, only: %i[ show edit update destroy ]
 
   # GET /parcels or /parcels.json
@@ -13,13 +14,13 @@ class ParcelsController < ApplicationController
   # GET /parcels/new
   def new
     @parcel = Parcel.new
-    @users = User.includes(:address).map{|user| [user.name_with_address, user.id]}
+    @users = User.includes(:address).where.not(id: current_user.id).map{|user| [user.name_with_address, user.id]}
     @service_types = ServiceType.all.map{|service_type| [service_type.name, service_type.id]}
   end
 
   # GET /parcels/1/edit
   def edit
-    @users = User.includes(:address).map{|user| [user.name_with_address, user.id]}
+    @users = User.includes(:address).where.not(id: current_user.id).map{|user| [user.name_with_address, user.id]}
     @service_types = ServiceType.all.map{|service_type| [service_type.name, service_type.id]}
   end
 

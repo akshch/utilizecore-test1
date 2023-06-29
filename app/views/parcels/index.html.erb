@@ -4,7 +4,9 @@
 
 <br />
 
+<% if current_user.is_admin? %>
 <%= link_to 'New Parcel', new_parcel_path %>
+<% end %>
 
 <br /><br />
 
@@ -31,7 +33,9 @@
         <td><%= parcel.sender.name %></td>
         <td><%= parcel.receiver.name %></td>
         <td><%= link_to 'Show', parcel %></td>
+        <% if current_user.is_admin? %>
         <td><%= link_to 'Edit', edit_parcel_path(parcel) %></td>
+        <% end %>
         <td><%= link_to 'Destroy', parcel, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

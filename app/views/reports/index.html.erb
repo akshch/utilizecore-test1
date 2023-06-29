@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>List Reports</h1>
+
+<br />
+
+<br /><br />
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Created At</th>
+      <th>File Name</th>
+      <th>Download</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% if @reports.present? %>
+    <% @reports.each do |report| %>
+      <tr>
+        <td><%= report.id %></td>
+        <td><%= report.created_at %></td>
+        <td><%=  report.document.filename %></td>
+        <td><%= link_to 'Download File', get_url(report) if report.document.attached? %></td>
+      </tr>
+    <% end %>
+  <% else %>
+  <tr>No Reports!!</tr>
+  <% end %>
+  </tbody>
+</table>
