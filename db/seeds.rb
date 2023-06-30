@@ -12,12 +12,15 @@ end
 
 
 ['sender', 'receiver'].each do |name|
-	user = User.new(name: name, email: "#{name}@gmail.com")
+	user = User.new(name: name, email: "#{name}@gmail.com", password: 'password')
 	user.build_address(address_line_one: "Test Street #{name}", city: "New Delhi",
 		               state: "New Delhi", country: "India", pincode: 110111,
 		               mobile_number: '9999999999')
 	user.save
 end
 
-User.create(name: 'admin', email: 'admin@gmail.com', password: 'password', is_admin: true)
-
+user = User.new(name: 'admin', email: 'admin@gmail.com', password: 'password', is_admin: true)
+user.build_address(address_line_one: "Test Street admin", city: "Delhi",
+  state: "New Delhi", country: "India", pincode: 110111,
+  mobile_number: '8888888888')
+user.save

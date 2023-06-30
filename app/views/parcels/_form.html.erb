@@ -13,42 +13,42 @@
 
   <div class="field">
     <%= form.label :weight %>
-    <%= form.text_field :weight %>
+    <%= form.text_field :weight, class: 'form-control' %>
   </div>
 
   <div class="field">
-    <%= form.label :status %>
-    <%= form.select :status, Parcel::STATUS %>
+    <%= form.label :status %><br>
+    <%= form.select :status, Parcel::STATUS, class: "form-control" %>
   </div>
 
   <div class="field">
-    <%= form.label :service_type_id %>
-    <%= form.select :service_type_id, @service_types %>
+    <%= form.label :service_type_id %><br>
+    <%= form.select :service_type_id, @service_types, class: "form-control" %>
   </div>
 
   <div class="field">
-    <%= form.label :payment_mode %>
-    <%= form.select :payment_mode, Parcel::PAYMENT_MODE %>
+    <%= form.label :payment_mode %><br>
+    <%= form.select :payment_mode, Parcel::PAYMENT_MODE, class: "form-control" %>
   </div>
 
   <div class="field">
-    <%= form.label :sender_id %>
-    <%= form.select :sender_id, [[current_user.name_with_address, current_user.id]] %>
+    <%= form.label :sender_id %><br>
+    <%= form.select :sender_id, [[current_user.name_with_address, current_user.id]], class: "form-control" %>
     <%= link_to 'New Sender', new_user_path %>
   </div>
 
   <div class="field">
-    <%= form.label :receiver_id %>
-    <%= form.select :receiver_id, @users %>
+    <%= form.label :receiver_id %><br>
+    <%= form.select :receiver_id, @users, class: "form-control" %>
     <%= link_to 'New Receiver', new_user_path %>
   </div>
 
   <div class="field">
-    <%= form.label :cost %>
-    <%= form.text_field :cost %>
+    <%= form.label :cost %><br>
+    <%= form.text_field :cost, class: "form-control" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
-  </div>
+    <%= form.submit 'Submit', class: "btn btn-primary" %>
+  </div><br>
 <% end %>

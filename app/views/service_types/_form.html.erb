@@ -13,10 +13,10 @@
 
   <div class="field">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, class: 'form-control', required: true %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
-  </div>
+    <%= form.submit 'Submit', class: 'btn btn-primary' %>
+  </div><br>
 <% end %>

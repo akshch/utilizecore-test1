@@ -13,45 +13,45 @@
 
   <div class="field">
     <%= form.label :address_line_one %>
-    <%= form.text_field :address_line_one %>
+    <%= form.text_field :address_line_one, class: 'form-control', required: true %>
   </div>
 
   <div class="field">
     <%= form.label :address_line_two %>
-    <%= form.text_field :address_line_two %>
+    <%= form.text_field :address_line_two, class: 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :city %>
-    <%= form.text_field :city %>
+    <%= form.text_field :city, class: 'form-control', required: true %>
   </div>
 
   <div class="field">
     <%= form.label :state %>
-    <%= form.text_field :state %>
+    <%= form.text_field :state, class: 'form-control', required: true %>
   </div>
 
   <div class="field">
     <%= form.label :country %>
-    <%= form.text_field :country %>
+    <%= form.text_field :country, class: 'form-control', required: true %>
   </div>
 
   <div class="field">
     <%= form.label :pincode %>
-    <%= form.text_field :pincode %>
+    <%= form.text_field :pincode, class: 'form-control', required: true %>
   </div>
 
   <div class="field">
     <%= form.label :mobile_number %>
-    <%= form.text_field :mobile_number %>
+    <%= form.text_field :mobile_number, class: 'form-control', required: true %>
   </div>
 
   <div class="field">
     <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
+    <%= form.text_field :user_id, class: 'form-control', required: true %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
-  </div>
+    <%= form.submit 'Submit', class: 'btn btn-primary' %>
+  </div><br>
 <% end %>

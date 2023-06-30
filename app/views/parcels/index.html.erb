@@ -5,12 +5,12 @@
 <br />
 
 <% if current_user.is_admin? %>
-<%= link_to 'New Parcel', new_parcel_path %>
+<%= link_to 'New Parcel', new_parcel_path, class: 'btn btn-outline-primary' %>
 <% end %>
 
 <br /><br />
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Weight</th>
@@ -32,11 +32,11 @@
         <td><%= parcel.payment_mode %></td>
         <td><%= parcel.sender.name %></td>
         <td><%= parcel.receiver.name %></td>
-        <td><%= link_to 'Show', parcel %></td>
+        <td><%= link_to 'Show', parcel, class: 'btn btn-outline-primary' %></td>
         <% if current_user.is_admin? %>
-        <td><%= link_to 'Edit', edit_parcel_path(parcel) %></td>
+        <td><%= link_to 'Edit', edit_parcel_path(parcel), class: 'btn btn-outline-primary' %></td>
         <% end %>
-        <td><%= link_to 'Destroy', parcel, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', parcel, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-danger' %></td>
       </tr>
     <% end %>
   </tbody>

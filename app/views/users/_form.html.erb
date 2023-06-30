@@ -13,12 +13,12 @@
 
   <div class="field">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, class: 'form-control', required: true %>
   </div>
 
   <div class="field">
     <%= form.label :email %>
-    <%= form.email_field :email %>
+    <%= form.email_field :email, class: 'form-control', required: true, style: 'border: 1px solid #555; !important; width:50% !important;' %>
   </div>
 
   <%= form.fields_for :address do |f| %>
@@ -26,6 +26,6 @@
   <% end %>
 
   <div class="actions">
-    <%= form.submit %>
-  </div>
+    <%= form.submit 'Submit', class: 'btn btn-primary'  %>
+  </div><br>
 <% end %>
