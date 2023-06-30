@@ -19,3 +19,5 @@ end
 	user.save
 end
 
+User.create(name: 'admin', email: 'admin@gmail.com', password: 'password', is_admin: true)
+
